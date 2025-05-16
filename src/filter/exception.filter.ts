@@ -22,6 +22,8 @@ export class AllExeceptionFilter implements ExceptionFilter {
     let error: string = 'Interval server error';
     let details: { name: string; message: string }[] = [];
 
+    
+
     if (exception instanceof HttpException) {
       statusCode = exception.getStatus();
       const res = exception.getResponse();

@@ -74,6 +74,7 @@ export class ProductService implements OnModuleInit {
     if (!image) {
         throw new NotFoundException('Image not found');
     };
+    
 
     if(image) {
         const imageName = await this.fsHelper.uploadImage(image);

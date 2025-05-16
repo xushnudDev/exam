@@ -56,6 +56,7 @@ export class ProductController {
     )
     image: Express.Multer.File,
   ) {
+    
     return this.productService.create(payload, image);
   }
   @ApiOperation({

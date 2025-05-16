@@ -51,6 +51,6 @@ export class UserService implements OnModuleInit {
         });
       }
     }
-    console.log('Admins were created successfully');
+    ('Admins were created successfully');
   }
 }
