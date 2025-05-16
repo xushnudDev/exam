@@ -119,8 +119,13 @@ export class ProductService implements OnModuleInit {
     if(!product) {
         throw new NotFoundException('Product not found');
     }
-    // await this.fsHelper.deleteImage(product.dataValues.image); agar rasm kiritsanggiz ishlating
-    await product.destroy();
+    if(product.image) {
+        await this.fsHelper.deleteImage(product.dataValues.image); 
+
+    } else {
+      await product.destroy();
+    }
+    
     return {
         message: 'Product deleted'
     }
