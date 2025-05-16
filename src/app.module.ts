@@ -21,6 +21,7 @@ import { ProductModule, UserModule } from './modules';
       logging: console.log,
       sync: {
         alter: true,
+        force: true
       },
       autoLoadModels: true,
     }),

@@ -119,7 +119,7 @@ export class ProductService implements OnModuleInit {
     if(!product) {
         throw new NotFoundException('Product not found');
     }
-    await this.fsHelper.deleteImage(product.dataValues.image);
+    // await this.fsHelper.deleteImage(product.dataValues.image); agar rasm kiritsanggiz ishlating
     await product.destroy();
     return {
         message: 'Product deleted'
@@ -133,7 +133,7 @@ export class ProductService implements OnModuleInit {
             description: 'the best phone ever',
             price: 100,
             discount: 10,
-            rating: 4.5,
+            rating: 2,
             image: null,
         },
         {
@@ -141,7 +141,7 @@ export class ProductService implements OnModuleInit {
             description: 'the best fridge ever',
             price: 200,
             discount: 20,
-            rating: 4.5,
+            rating: 5,
             image: null,
         },
         {
@@ -149,7 +149,7 @@ export class ProductService implements OnModuleInit {
             description: 'the best laptop ever',
             price: 300,
             discount: 30,
-            rating: 4.5,
+            rating: 3,
             image: null,
         },
         {
@@ -157,7 +157,7 @@ export class ProductService implements OnModuleInit {
             description: 'the best TV ever',
             price: 400,
             discount: 40,
-            rating: 4.5,
+            rating: 1,
             image: null,
         },
         {
@@ -165,7 +165,7 @@ export class ProductService implements OnModuleInit {
             description: 'the best tablet ever',
             price: 500,
             discount: 50,
-            rating: 4.5,
+            rating: 2,
             image: null,
         },
         {
@@ -173,7 +173,7 @@ export class ProductService implements OnModuleInit {
             description: 'the best headphones ever',
             price: 600,
             discount: 60,
-            rating: 4.5,
+            rating: 5,
             image: null,
         },
         {
@@ -181,7 +181,7 @@ export class ProductService implements OnModuleInit {
             description: 'the best smartwatch ever',
             price: 700,
             discount: 70,
-            rating: 4.5,
+            rating: 1,
             image: null,
         },
         {
@@ -189,7 +189,7 @@ export class ProductService implements OnModuleInit {
             description: 'the best camera ever',
             price: 800,
             discount: 80,
-            rating: 4.5,
+            rating: 2,
             image: null,
         },
         {
@@ -197,7 +197,7 @@ export class ProductService implements OnModuleInit {
             description: 'the best gaming PC ever',
             price: 90,
             discount: 90,
-            rating: 4.5,
+            rating: 3,
             image: null,
         },
         {
@@ -205,9 +205,14 @@ export class ProductService implements OnModuleInit {
             description: 'the best smartphone ever',
             price: 1000,
             discount: 100,
-            rating: 4.5,
+            rating: 4,
             image: null,
         }
-    ]
+    ];
+    for (const product of products) {
+        await this.productModel.create(product);
+    }
+    console.log('Products seeded');
+    
   }
 }
