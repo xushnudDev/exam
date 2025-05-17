@@ -7,6 +7,7 @@ import {
   VersioningType,
 } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { AllExeceptionFilter } from './filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -15,6 +16,8 @@ async function bootstrap() {
     app.use(morgan('tiny'));
   }
   app.setGlobalPrefix('api');
+
+  app.useGlobalFilters(new AllExeceptionFilter());
 
   app.enableVersioning({
     type: VersioningType.URI,

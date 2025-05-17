@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEnum, IsNumber, IsString } from 'class-validator';
-import { Type } from 'class-transformer'; // <-- MUHIM
+import { Type } from 'class-transformer'; 
 import { Status } from '../enum';
 
 export class CreateProductDto {

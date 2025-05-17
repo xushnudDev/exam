@@ -120,7 +120,7 @@ export class ProductService implements OnModuleInit {
     if(!product) {
         throw new NotFoundException('Product not found');
     }
-    if(product.image) {
+    if(product.dataValues.image) {
         await this.fsHelper.deleteImage(product.dataValues.image); 
 
     } else {
